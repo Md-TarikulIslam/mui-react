@@ -14,6 +14,7 @@ function RHFTextField({ name, label, helperText, className, ...other }) {
             {...field}
             id="filled-basic"
             label={label}
+            sx={{width:'100%'}}
             variant="filled"
             value={field.value || ""}
             color="warning"

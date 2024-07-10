@@ -1,14 +1,14 @@
-import { Button } from "@mui/material";
+import { Delete } from "@mui/icons-material";
+import { Box, Grid } from "@mui/material";
 import { useForm } from "react-hook-form";
+import PrimaryButton from "./components/Button/PrimaryButton";
 import FormProvider from "./components/HookForm/FormProvider";
 import PasswordField from "./components/HookForm/PasswordField";
 import RHFAutocomplete from "./components/HookForm/RHFAutocomplete";
 import RHFDate from "./components/HookForm/RHFDate";
+import RHFEditor from "./components/HookForm/RHFEditor";
 import RHFTextField from "./components/HookForm/RHFTextField";
 import RHFUploadImage from "./components/HookForm/RHFUploadImage";
-import RHFEditor from "./components/HookForm/RHFEditor";
-import PrimaryButton from "./components/Button/PrimaryButton";
-import { Delete } from "@mui/icons-material";
 
 function App() {
   const methods = useForm();
@@ -29,35 +29,54 @@ function App() {
   ];
 
   return (
-    <div>
+    <Box>
       <FormProvider methods={methods} onSubmit={handleSubmit(handleRegister)}>
-        <RHFTextField
-          name="name"
-          label="Enter your name"
-          helperText="Not more than 2 things"
-        />
-        <RHFAutocomplete
-          name="movies"
-          label="Select Movie"
-          helperText="Not more than 2 things"
-          options={movies}
-          // multiple={false}
-        />
-        <PasswordField
-          name="password"
-          label="Enter your name"
-          helperText="Not more than 2 things"
-        />
-        <RHFDate name="date" label="Select a Date" helperText="DD/MM/YYYY" />
-        <RHFUploadImage
-          name="date"
-          placeholder="Select an Image"
-          helperText="Image"
-        />
-        <RHFEditor name="edit" label="Start Typing..." helperText="Image" />
-        <PrimaryButton type="submit" icon={<Delete />}>Submit</PrimaryButton>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+          <Grid item xs={12} md={6}>
+            <RHFTextField
+              name="name"
+              label="Enter your name"
+              helperText="Not more than 2 things"
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <RHFAutocomplete
+              name="movies"
+              label="Select Movie"
+              helperText="Not more than 2 things"
+              options={movies}
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <PasswordField
+              name="password"
+              label="Enter Password"
+              helperText="Not more than 2 things"
+            />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <RHFDate
+              name="date"
+              label="Select a Date"
+              helperText="DD/MM/YYYY"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <RHFUploadImage
+              name="date"
+              placeholder="Select an Image"
+              helperText="Image"
+            />
+          </Grid>
+          <Grid item xs={12} sx={{ margin: "20px 0" }}>
+            <RHFEditor name="edit" label="Start Typing..." helperText="Image" />
+          </Grid>
+        </Grid>
+        <PrimaryButton type="submit" icon={<Delete />}>
+          Submit
+        </PrimaryButton>
       </FormProvider>
-    </div>
+    </Box>
   );
 }
 

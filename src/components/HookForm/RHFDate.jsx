@@ -29,6 +29,7 @@ function RHFDate({ name, label, helperText, className, ...other }) {
           <DatePicker
             {...field}
             label={label}
+            sx={{width:'100%'}}
             onChange={(date) => field.onChange(date)}
             slotProps={{
               textField: {

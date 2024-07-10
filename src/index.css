@@ -1,0 +1,11 @@
+/* Editor:: Quill */
+.ql-toolbar.ql-snow {
+  text-align: center;
+  background-color: #e8e8e8;
+  border: none;
+  border-radius: 4px 4px 0 0;
+}
+.ql-container.ql-snow {
+  border: none;
+  border-bottom: 1px solid #666666;
+}

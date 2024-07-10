@@ -53,7 +53,7 @@ function RHFDate({ name, label, helperText, className, ...other }) {
           />
           {cleared && (
             <Alert
-              sx={{ position: "absolute", bottom: 0, right: 0 }}
+              sx={{ position: "absolute", bottom: 0, right: 0 , zIndex:50}}
               severity="success"
             >
               Field cleared!

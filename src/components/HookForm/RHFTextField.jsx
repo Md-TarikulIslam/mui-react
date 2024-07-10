@@ -12,7 +12,6 @@ function RHFTextField({ name, label, helperText, className, ...other }) {
         <div className="w-full">
           <TextField
             {...field}
-            id="filled-basic"
             label={label}
             sx={{width:'100%'}}
             variant="filled"

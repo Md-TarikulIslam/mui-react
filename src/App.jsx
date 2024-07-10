@@ -9,6 +9,7 @@ import RHFDate from "./components/HookForm/RHFDate";
 import RHFEditor from "./components/HookForm/RHFEditor";
 import RHFTextField from "./components/HookForm/RHFTextField";
 import RHFUploadImage from "./components/HookForm/RHFUploadImage";
+import Data from "./components/Table/Data";
 
 function App() {
   const methods = useForm();
@@ -19,7 +20,7 @@ function App() {
   };
 
   const movies = [
-    { label: "The Shawshank Redemption", year: 1994 },
+    { label: "The Shawshank Redemption",value: "The Shawshank Redemption", year: 1994 },
     { label: "The Godfather", year: 1972 },
     { label: "The Godfather: Part II", year: 1974 },
     { label: "The Dark Knight", year: 2008 },
@@ -63,7 +64,7 @@ function App() {
           </Grid>
           <Grid item xs={12}>
             <RHFUploadImage
-              name="date"
+              name="image"
               placeholder="Select an Image"
               helperText="Image"
             />
@@ -72,10 +73,16 @@ function App() {
             <RHFEditor name="edit" label="Start Typing..." helperText="Image" />
           </Grid>
         </Grid>
-        <PrimaryButton type="submit" icon={<Delete />}>
-          Submit
-        </PrimaryButton>
+        <Box sx={{ margin: "20px 0" }}>
+          {" "}
+          <PrimaryButton type="submit" icon={<Delete />}>
+            Submit
+          </PrimaryButton>
+        </Box>
       </FormProvider>
+      <Box sx={{ margin: "20px 0" }}>
+        <Data />
+      </Box>
     </Box>
   );
 }

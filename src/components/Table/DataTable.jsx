@@ -7,11 +7,12 @@ import {
   DataGrid,
   GridActionsCellItem,
   GridRowEditStopReasons,
-  GridRowModes
+  GridRowModes,
+  GridToolbar
 } from "@mui/x-data-grid";
 import * as React from "react";
 
-export default function DataTable({ columns, initialRows }) {
+export default function DataTable({ columns, initialRows, toolbar }) {
   const [rows, setRows] = React.useState(initialRows);
   const [rowModesModel, setRowModesModel] = React.useState({});
 
@@ -123,6 +124,10 @@ export default function DataTable({ columns, initialRows }) {
         onRowModesModelChange={handleRowModesModelChange}
         onRowEditStop={handleRowEditStop}
         processRowUpdate={processRowUpdate}
+        slots={{
+          toolbar: toolbar,
+        }}
+        
         initialState={{
           pagination: {
             paginationModel: {
@@ -131,6 +136,7 @@ export default function DataTable({ columns, initialRows }) {
           },
         }}
         pageSizeOptions={[5, 10, 25]}
+        
       />
     </Box>
   );

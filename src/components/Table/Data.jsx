@@ -1,6 +1,8 @@
 import { randomId } from "@mui/x-data-grid-generator";
 import * as React from "react";
 import DataTable from "./DataTable";
+import { GridToolbar } from "@mui/x-data-grid";
+import CustomToolbar from "./CustomToolbar";
 
 export const division = [
   {
@@ -132,5 +134,5 @@ const columns = [
 ];
 
 export default function Data() {
-  return <DataTable columns={columns} initialRows={division || []} />;
+  return <DataTable columns={columns} initialRows={division || []} toolbar={CustomToolbar } />;
 }
